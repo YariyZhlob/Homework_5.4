@@ -9,7 +9,7 @@ list_categories = requests.get(url).json() #2.Отправить запрос д
 check_status_code = requests.get(url).status_code
 assert  check_status_code == 200, 'пришел ответ, отличный от 200, необходимо дебажить' #проверка статус-кода
 
-print(list_categories)  '''печать всех категорий шуток'''
+print(list_categories) #печать всех категорий шуток
 
 assert desired_category in list_categories, 'Желаемой категории в списке нет' #3.убедиться что данная категория (из пункта 1) есть в ответе запроса (отправленного в пункте 2)
 desired_joke = requests.get(f'https://api.chucknorris.io/jokes/random?category={desired_category}').json()['value']  #4.Отправить запрос для получения шутки, которую запросил пользователь
